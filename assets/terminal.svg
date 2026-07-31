@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-labelledby="termTitle termDesc">
+  <title id="termTitle">SPEC OS interactive terminal</title>
+  <desc id="termDesc">A terminal window listing SPEC OS commands, ending with the hidden unlock command granting access.</desc>
+
+  <defs>
+    <filter id="term-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="term-halo" cx="50%" cy="100%" r="70%">
+      <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.18"/>
+      <stop offset="70%" stop-color="#0D1117" stop-opacity="0"/>
+    </radialGradient>
+    <style>
+      .f-mono{font-family:"JetBrains Mono","Fira Code",Consolas,monospace}
+      @keyframes tIn  {from{opacity:0}to{opacity:1}}
+      @keyframes tBlk {0%,49%{opacity:1}50%,100%{opacity:0}}
+      @keyframes tGrant{0%,55%{opacity:0}60%{opacity:1}100%{opacity:1}}
+      .l{opacity:0;animation:tIn .3s ease-out forwards}
+      .a1{animation-delay:.2s}.a2{animation-delay:.5s}.a3{animation-delay:.8s}.a4{animation-delay:1.1s}
+      .a5{animation-delay:1.4s}.a6{animation-delay:1.7s}.a7{animation-delay:2.1s}
+      .grant{opacity:0;animation:tGrant 4s linear .1s forwards}
+      .caret{animation:tBlk 1s steps(1) infinite}
+      @media (prefers-reduced-motion: reduce){*{animation:none!important}.l,.grant{opacity:1}}
+    </style>
+  </defs>
+
+  <rect width="1200" height="420" rx="20" fill="#0D1117"/>
+  <rect width="1200" height="420" rx="20" fill="url(#term-halo)"/>
+  <path d="M0 20 A20 20 0 0 1 20 0 H1180 A20 20 0 0 1 1200 20 V56 H0 Z" fill="#161B22"/>
+  <circle cx="32" cy="28" r="5.5" fill="#EF4444"/><circle cx="52" cy="28" r="5.5" fill="#F59E0B"/><circle cx="72" cy="28" r="5.5" fill="#22C55E"/>
+  <text class="f-mono" x="600" y="33" fill="#8B949E" font-size="12" letter-spacing="2.6" text-anchor="middle">visitor@spec-os — zsh</text>
+  <line x1="0" y1="56" x2="1200" y2="56" stroke="#30363D"/>
+
+  <g class="f-mono" font-size="14">
+    <text class="l a1" x="48" y="98"><tspan fill="#22C55E">visitor@spec-os</tspan><tspan fill="#8B949E">:</tspan><tspan fill="#A855F7">~</tspan><tspan fill="#8B949E">$ </tspan><tspan fill="#F8FAFC">help</tspan></text>
+    <text class="l a2" x="48" y="132"><tspan fill="#C084FC">whoami</tspan><tspan fill="#8B949E">      full stack developer · spec-driven · pakistan</tspan></text>
+    <text class="l a3" x="48" y="162"><tspan fill="#C084FC">stack</tspan><tspan fill="#8B949E">       typescript · next.js · node.js · python</tspan></text>
+    <text class="l a4" x="48" y="192"><tspan fill="#C084FC">projects</tspan><tspan fill="#8B949E">    list shipped systems</tspan></text>
+    <text class="l a5" x="48" y="222"><tspan fill="#C084FC">specs</tspan><tspan fill="#8B949E">       browse the spec registry</tspan></text>
+    <text class="l a6" x="48" y="252"><tspan fill="#C084FC">contact</tspan><tspan fill="#8B949E">     open a channel</tspan></text>
+
+    <text class="l a7" x="48" y="298"><tspan fill="#22C55E">visitor@spec-os</tspan><tspan fill="#8B949E">:</tspan><tspan fill="#A855F7">~</tspan><tspan fill="#8B949E">$ </tspan><tspan fill="#F8FAFC">unlock</tspan></text>
+
+    <g class="grant">
+      <text x="48" y="334" fill="#22C55E" font-size="15" letter-spacing="3" filter="url(#term-glow)">ACCESS GRANTED</text>
+      <text x="48" y="360" fill="#F8FAFC">Welcome, curious developer.</text>
+      <text x="48" y="384" fill="#8B949E">You found the hidden room. <tspan fill="#C084FC">:)</tspan></text>
+      <rect class="caret" x="322" y="371" width="9" height="16" fill="#C084FC"/>
+    </g>
+  </g>
+  <rect x="0.5" y="0.5" width="1199" height="419" rx="20" fill="none" stroke="#30363D"/>
+</svg>
