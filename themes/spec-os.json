@@ -1,0 +1,57 @@
+{
+  "$schema": "https://design-tokens.org/schema.json",
+  "name": "SPEC OS",
+  "version": "1.0.0",
+  "mode": "dark-only",
+  "author": "Muhammad Ehsan <ehsah-2k4>",
+  "spec": "SPEC-000",
+  "color": {
+    "bg": "#0D1117",
+    "card": "#161B22",
+    "surface2": "#1C2128",
+    "primary": "#A855F7",
+    "secondary": "#7C3AED",
+    "accent": "#C084FC",
+    "success": "#22C55E",
+    "warn": "#F59E0B",
+    "danger": "#EF4444",
+    "text": "#F8FAFC",
+    "muted": "#8B949E",
+    "dim": "#484F58",
+    "border": "#30363D"
+  },
+  "gradient": {
+    "brand": "linear-gradient(135deg, #7C3AED 0%, #A855F7 50%, #C084FC 100%)",
+    "surface": "linear-gradient(180deg, #161B22 0%, #0D1117 100%)",
+    "glow": "radial-gradient(circle, rgba(168,85,247,.35) 0%, rgba(13,17,23,0) 70%)",
+    "line": "linear-gradient(90deg, transparent, #A855F7, transparent)"
+  },
+  "shadow": {
+    "e2": "0 8px 24px rgba(0,0,0,.45)",
+    "glowSm": "0 0 8px rgba(168,85,247,.35)",
+    "glowMd": "0 0 18px rgba(168,85,247,.45)",
+    "glowLg": "0 0 42px rgba(124,58,237,.55)",
+    "glowOk": "0 0 12px rgba(34,197,94,.55)"
+  },
+  "radius": { "sm": 6, "md": 10, "lg": 14, "xl": 20, "full": 9999 },
+  "space": { "1": 4, "2": 8, "3": 12, "4": 16, "6": 24, "8": 32, "12": 48, "16": 64, "24": 96 },
+  "font": {
+    "display": "Space Grotesk, Inter, system-ui, sans-serif",
+    "body": "Inter, system-ui, -apple-system, sans-serif",
+    "mono": "JetBrains Mono, Fira Code, Consolas, monospace"
+  },
+  "fontSize": {
+    "display": 48, "h1": 38, "h2": 30, "h3": 24, "h4": 20,
+    "body": 16, "small": 14, "micro": 12, "code": 14
+  },
+  "tracking": { "tight": "-0.02em", "normal": "0", "label": "0.18em" },
+  "motion": {
+    "duration": { "fast": 150, "base": 240, "slow": 480, "cine": 2400, "heroLoop": 12000 },
+    "easing": {
+      "out": "cubic-bezier(.16,1,.3,1)",
+      "inOut": "cubic-bezier(.65,0,.35,1)"
+    }
+  },
+  "grid": { "width": 1200, "columns": 12, "gutter": 24, "margin": 48, "baseline": 8 },
+  "icon": { "grid": 24, "stroke": 1.75, "cap": "round", "join": "round", "library": "lucide" }
+}
