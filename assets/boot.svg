@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="bootTitle bootDesc">
+  <title id="bootTitle">SPEC OS boot sequence</title>
+  <desc id="bootDesc">A terminal-style boot screen loading SPEC OS modules with a progress bar reaching system online.</desc>
+
+  <defs>
+    <linearGradient id="boot-brand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7C3AED"/><stop offset="100%" stop-color="#C084FC"/>
+    </linearGradient>
+    <radialGradient id="boot-halo" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.22"/>
+      <stop offset="70%" stop-color="#0D1117" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="boot-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .f-mono { font-family:"JetBrains Mono","Fira Code",Consolas,monospace; }
+      @keyframes bootIn  { 0%{opacity:0} 100%{opacity:1} }
+      @keyframes bootBar { 0%{width:0} 100%{width:1000px} }
+      @keyframes bootBlk { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+      @keyframes bootPls { 0%,100%{opacity:.5} 50%{opacity:1} }
+      .l  { opacity:0; animation: bootIn .35s ease-out forwards; }
+      .l1 {animation-delay:.20s} .l2 {animation-delay:.55s} .l3 {animation-delay:.90s}
+      .l4 {animation-delay:1.25s} .l5 {animation-delay:1.60s} .l6 {animation-delay:1.95s}
+      .l7 {animation-delay:2.30s} .l8 {animation-delay:2.80s}
+      .bar   { animation: bootBar 2.6s cubic-bezier(.16,1,.3,1) forwards; }
+      .caret { animation: bootBlk 1s steps(1) infinite; }
+      .dot   { animation: bootPls 2s ease-in-out infinite; }
+      @media (prefers-reduced-motion: reduce) { *{animation:none!important} .l{opacity:1} .bar{width:1000px} }
+    </style>
+  </defs>
+
+  <rect width="1200" height="500" rx="20" fill="#0D1117"/>
+  <rect width="1200" height="500" rx="20" fill="url(#boot-halo)"/>
+
+  <!-- titlebar -->
+  <path d="M0 20 A20 20 0 0 1 20 0 H1180 A20 20 0 0 1 1200 20 V56 H0 Z" fill="#161B22"/>
+  <circle cx="32" cy="28" r="5.5" fill="#EF4444"/><circle cx="52" cy="28" r="5.5" fill="#F59E0B"/><circle cx="72" cy="28" r="5.5" fill="#22C55E"/>
+  <text class="f-mono" x="600" y="33" fill="#8B949E" font-size="12" letter-spacing="2.6" text-anchor="middle">spec-os — boot</text>
+  <line x1="0" y1="56" x2="1200" y2="56" stroke="#30363D"/>
+
+  <g class="f-mono" font-size="14">
+    <text class="l l1" x="60" y="104"><tspan fill="#22C55E">visitor@spec-os</tspan><tspan fill="#8B949E">:</tspan><tspan fill="#A855F7">~</tspan><tspan fill="#8B949E">$ </tspan><tspan fill="#F8FAFC">boot --profile ehsah-2k4</tspan></text>
+
+    <text class="l l2" x="60" y="146"><tspan fill="#8B949E">[ </tspan><tspan fill="#22C55E">OK</tspan><tspan fill="#8B949E"> ] </tspan><tspan fill="#F8FAFC">mounting  identity.spec</tspan><tspan fill="#484F58">              SPEC-001</tspan></text>
+    <text class="l l3" x="60" y="180"><tspan fill="#8B949E">[ </tspan><tspan fill="#22C55E">OK</tspan><tspan fill="#8B949E"> ] </tspan><tspan fill="#F8FAFC">loading   design-system.json</tspan><tspan fill="#484F58">        SPEC-000</tspan></text>
+    <text class="l l4" x="60" y="214"><tspan fill="#8B949E">[ </tspan><tspan fill="#22C55E">OK</tspan><tspan fill="#8B949E"> ] </tspan><tspan fill="#F8FAFC">theme     purple-neon</tspan><tspan fill="#484F58">               #A855F7</tspan></text>
+    <text class="l l5" x="60" y="248"><tspan fill="#8B949E">[ </tspan><tspan fill="#22C55E">OK</tspan><tspan fill="#8B949E"> ] </tspan><tspan fill="#F8FAFC">runtime   node · next · python</tspan></text>
+    <text class="l l6" x="60" y="282"><tspan fill="#8B949E">[ </tspan><tspan fill="#22C55E">OK</tspan><tspan fill="#8B949E"> ] </tspan><tspan fill="#F8FAFC">registry  projects · specs · roadmap</tspan></text>
+    <text class="l l7" x="60" y="316"><tspan fill="#8B949E">[ </tspan><tspan fill="#C084FC">**</tspan><tspan fill="#8B949E"> ] </tspan><tspan fill="#F8FAFC">easter    hidden room </tspan><tspan fill="#484F58">— type `unlock`</tspan></text>
+  </g>
+
+  <!-- progress -->
+  <text class="f-mono l l7" x="60" y="366" fill="#8B949E" font-size="11" letter-spacing="2.6">INITIALIZING SPEC OS v1.0</text>
+  <rect x="60" y="382" width="1000" height="10" rx="5" fill="#1C2128"/>
+  <rect class="bar" x="60" y="382" width="0" height="10" rx="5" fill="url(#boot-brand)" filter="url(#boot-glow)"/>
+  <text class="f-mono l l8" x="1080" y="391" fill="#C084FC" font-size="12">100%</text>
+
+  <g class="l l8">
+    <circle class="dot" cx="66" cy="436" r="5.5" fill="#22C55E" filter="url(#boot-glow)"/>
+    <text class="f-mono" x="84" y="441" fill="#22C55E" font-size="13" letter-spacing="2.6">SYSTEM ONLINE</text>
+    <text class="f-mono" x="60" y="472" fill="#8B949E" font-size="13"><tspan fill="#22C55E">visitor@spec-os</tspan><tspan fill="#8B949E">:</tspan><tspan fill="#A855F7">~</tspan><tspan fill="#8B949E">$ </tspan></text>
+    <rect class="caret" x="188" y="459" width="9" height="17" fill="#C084FC"/>
+  </g>
+
+  <rect x="0.5" y="0.5" width="1199" height="499" rx="20" fill="none" stroke="#30363D"/>
+</svg>
