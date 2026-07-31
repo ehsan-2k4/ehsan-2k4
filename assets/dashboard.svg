@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="dashTitle dashDesc">
+  <title id="dashTitle">SPEC OS Mission Control dashboard</title>
+  <desc id="dashDesc">Four stat tiles showing specs shipped, active projects, stack modules and uptime, with a sparkline activity strip.</desc>
+
+  <defs>
+    <linearGradient id="dash-brand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7C3AED"/><stop offset="100%" stop-color="#C084FC"/>
+    </linearGradient>
+    <linearGradient id="dash-rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#A855F7" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#A855F7"/><stop offset="100%" stop-color="#A855F7" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="dash-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .f-mono { font-family:"JetBrains Mono","Fira Code",Consolas,monospace; }
+      .f-disp { font-family:"Space Grotesk",Inter,system-ui,sans-serif; }
+      @keyframes dashIn   { from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:none} }
+      @keyframes dashPls  { 0%,100%{opacity:.5} 50%{opacity:1} }
+      @keyframes dashDraw { to { stroke-dashoffset:0 } }
+      .tile { opacity:0; animation: dashIn .5s cubic-bezier(.16,1,.3,1) forwards; }
+      .t1{animation-delay:.05s}.t2{animation-delay:.15s}.t3{animation-delay:.25s}.t4{animation-delay:.35s}
+      .dot  { animation: dashPls 2s ease-in-out infinite; }
+      .spark{ stroke-dasharray:1200; stroke-dashoffset:1200; animation: dashDraw 2.4s ease-out .5s forwards; }
+      @media (prefers-reduced-motion: reduce){*{animation:none!important}.tile{opacity:1}.spark{stroke-dashoffset:0}}
+    </style>
+  </defs>
+
+  <rect width="1200" height="360" rx="20" fill="#0D1117"/>
+
+  <text class="f-mono" x="48" y="52" fill="#C084FC" font-size="13" letter-spacing="4">MISSION CONTROL</text>
+  <circle class="dot" cx="1128" cy="47" r="5" fill="#22C55E" filter="url(#dash-glow)"/>
+  <text class="f-mono" x="1144" y="52" fill="#22C55E" font-size="11" letter-spacing="2">LIVE</text>
+  <rect x="48" y="68" width="1104" height="1.5" fill="url(#dash-rule)"/>
+
+  <!-- tiles -->
+  <g class="tile t1">
+    <rect x="48" y="96" width="258" height="128" rx="14" fill="#161B22" stroke="#30363D"/>
+    <text class="f-mono" x="72" y="128" fill="#8B949E" font-size="11" letter-spacing="2.4">SPECS WRITTEN</text>
+    <text class="f-disp" x="72" y="182" fill="#F8FAFC" font-size="40" font-weight="700">12</text>
+    <text class="f-mono" x="72" y="204" fill="#22C55E" font-size="11">▲ 4 this sprint</text>
+  </g>
+  <g class="tile t2">
+    <rect x="330" y="96" width="258" height="128" rx="14" fill="#161B22" stroke="#A855F7" filter="url(#dash-glow)"/>
+    <text class="f-mono" x="354" y="128" fill="#8B949E" font-size="11" letter-spacing="2.4">ACTIVE PROJECTS</text>
+    <text class="f-disp" x="354" y="182" fill="#F8FAFC" font-size="40" font-weight="700">04</text>
+    <text class="f-mono" x="354" y="204" fill="#C084FC" font-size="11">portfolio · spec-os</text>
+  </g>
+  <g class="tile t3">
+    <rect x="612" y="96" width="258" height="128" rx="14" fill="#161B22" stroke="#30363D"/>
+    <text class="f-mono" x="636" y="128" fill="#8B949E" font-size="11" letter-spacing="2.4">STACK MODULES</text>
+    <text class="f-disp" x="636" y="182" fill="#F8FAFC" font-size="40" font-weight="700">05</text>
+    <text class="f-mono" x="636" y="204" fill="#8B949E" font-size="11">ts · next · node · py</text>
+  </g>
+  <g class="tile t4">
+    <rect x="894" y="96" width="258" height="128" rx="14" fill="#161B22" stroke="#30363D"/>
+    <text class="f-mono" x="918" y="128" fill="#8B949E" font-size="11" letter-spacing="2.4">UPTIME</text>
+    <text class="f-disp" x="918" y="182" fill="#F8FAFC" font-size="40" font-weight="700">99.9<tspan font-size="22">%</tspan></text>
+    <text class="f-mono" x="918" y="204" fill="#22C55E" font-size="11">all systems nominal</text>
+  </g>
+
+  <!-- activity strip -->
+  <rect x="48" y="248" width="1104" height="82" rx="14" fill="#161B22" stroke="#30363D"/>
+  <text class="f-mono" x="72" y="276" fill="#8B949E" font-size="11" letter-spacing="2.4">COMMIT ACTIVITY</text>
+  <polyline class="spark" fill="none" stroke="url(#dash-brand)" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" filter="url(#dash-glow)"
+            points="80,314 140,300 200,306 260,288 320,296 380,272 440,284 500,262 560,276 620,254 680,266 740,244 800,258 860,238 920,250 980,230 1040,242 1100,222"/>
+  <rect x="0.5" y="0.5" width="1199" height="359" rx="20" fill="none" stroke="#30363D"/>
+</svg>
